@@ -30,8 +30,11 @@ public class    CpsRumbo {
 
     @Test
     public void TCV_001(){
-        home.IngresarOrigen("Madrid");
+        home.AceptarCookies();
+        home.IngresarOrigen("Mexico");
         home.IngresarDestino("Paris");
+        home.SeleccionarFecha();
+        home.Buscar();
     }
 
 }
