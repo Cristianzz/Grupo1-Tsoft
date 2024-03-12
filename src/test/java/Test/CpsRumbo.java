@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CpsRumbo {
+public class    CpsRumbo {
     HomePage home;
     WebDriver driver;
 
@@ -26,6 +26,12 @@ public class CpsRumbo {
     @AfterEach
     public void posCondiciones(){
         //home.cerrarBrowser();
+    }
+
+    @Test
+    public void TCV_001(){
+        home.IngresarOrigen("Madrid");
+        home.IngresarDestino("Paris");
     }
 
 }
