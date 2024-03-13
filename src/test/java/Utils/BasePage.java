@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
 
@@ -52,7 +53,7 @@ public class BasePage {
     }
     public WebElement esperarElementoWeb(By localizador){
         espera = new WebDriverWait(this.driver,30);
-        return espera.until(ExpectedConditions.presenceOfElementLocated( localizador));
+        return espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
     }
 
     public void cargarSitio(String url){
@@ -78,9 +79,15 @@ public class BasePage {
     public String obtenerTexto(By localizador){
         return driver.findElement(localizador).getText();
     }
-
     public String obtenerAtributo(WebElement elemento, String atributo){
         return elemento.getAttribute(atributo);
+    }
+    public boolean estaDesplegado(WebElement elemento){
+        return elemento.isDisplayed();
+    }
+    public void seleccionarCmbPorValue(WebElement elemento, String value){
+        Select selector = new Select(elemento);
+        selector.selectByValue(value);
     }
 
     public void moverCursorSobreElemento(By localizador) {
