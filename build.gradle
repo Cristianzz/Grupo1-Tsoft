@@ -14,7 +14,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    testImplementation 'io.github.bonigarcia:webdrivermanager:4.4.3'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
 }
 
 test {
