@@ -17,6 +17,8 @@ public class HomePage extends BasePage {
 
     By byBtnPasajero= By.xpath("//button[span[contains(text(), \"pasajero\")]]");
     By ByBtnBuscar= By.xpath("(//button[contains(@aria-label, \"Buscar\")])[1]");
+
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -33,9 +35,9 @@ public class HomePage extends BasePage {
     }
 
     public void IngresarDestino(String destino){
-        esperarxsegundos(500);
+        esperarxsegundos(2000);
         clic(byCmbDestino);
-        esperarxsegundos(500);
+        esperarxsegundos(2000);
         agregarTexto(byCmbDestino,destino);
     }
 
@@ -51,5 +53,7 @@ public class HomePage extends BasePage {
         esperarxsegundos(1000);
         clic(esperarElementoWeb(ByBtnBuscar));
     }
+
+
 
 }

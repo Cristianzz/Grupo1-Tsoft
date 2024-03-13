@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
     //Wrapper de Selenium
@@ -80,6 +81,12 @@ public class BasePage {
 
     public String obtenerAtributo(WebElement elemento, String atributo){
         return elemento.getAttribute(atributo);
+    }
+
+    public void moverCursorSobreElemento(By localizador) {
+        WebElement elemento = driver.findElement(localizador);
+        Actions acciones = new Actions(driver);
+        acciones.moveToElement(elemento).perform();
     }
 
 }
