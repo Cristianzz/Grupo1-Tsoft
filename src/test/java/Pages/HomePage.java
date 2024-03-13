@@ -27,7 +27,7 @@ public class HomePage extends BasePage {
     By byCheckAmerican= By.xpath("//li[contains(text(), \"American\")]//button");
     By byTituloMesAnioIda = By.xpath("//div[@class=\"d-b1sfx4\"]/div[2]");
     By byTituloMesAnioVuelta = By.xpath("//div[@class=\"d-b1sfx4\"]/div[3]");
-    By byCampoInvalidoDestino = By.xpath("//span[@class=\"d-18hlxxm\"]");
+    By byCampoInvalido= By.xpath("//span[@class=\"d-18hlxxm\"]");
 
 
     public HomePage(WebDriver driver) {
@@ -133,9 +133,9 @@ public class HomePage extends BasePage {
         clic(esperarElementoWeb(ByBtnBuscar));
     }
 
-    public String textoCampoInvalidoDestino(){
+    public String textoCampoInvalido(){
         esperarxsegundos(tiempoEspera);
-        return obtenerTexto(esperarElementoWeb(byCampoInvalidoDestino));
+        return obtenerTexto(esperarElementoWeb(byCampoInvalido));
     }
 
     private void ubicarFechaIda(int mes, int anio) {

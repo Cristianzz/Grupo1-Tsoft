@@ -46,7 +46,7 @@ public class VuelosTest {
         home.seleccionarPasajerosAdultos(2); // Paso 6 - Seleccionar adultos
         home.realizarBusqueda(); // Paso 7 - Realizar búsqueda
         // assert compara mensaje de error de campo con el mensaje esperado
-        assertEquals("Introduce ciudad o aeropuerto de destino", home.textoCampoInvalidoDestino());
+        assertEquals("Introduce ciudad o aeropuerto de destino", home.textoCampoInvalido());
     }
 
 }
