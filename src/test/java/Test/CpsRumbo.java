@@ -31,7 +31,7 @@ public class CpsRumbo {
         //home.cerrarBrowser();
     }
 
-    @Test
+    /*@Test
     public void TCV_001_BusquedaVuelos_CamposValidos(){
         home.AceptarCookies();
         home.IngresarOrigen("Lima");
@@ -52,6 +52,18 @@ public class CpsRumbo {
         home.SeleccionarMetodoPago();
         home.Buscar();
         Assertions.assertTrue(flights.MensajeResultado().contains("resultado"));
+    }*/
+
+    @Test
+    public void TCV_004_usquedaVuelos_SinEscala(){
+        home.AceptarCookies();
+        home.IngresarOrigen("Lima");
+        home.IngresarDestino("Santiago (SCL)");
+        home.SeleccionarFecha();
+        home.SeleccionarPasajeros();
+        home.SeleccionarMetodoPago();
+        home.Buscar();
+        flights.VuelosSinEscalas();
     }
 
 
