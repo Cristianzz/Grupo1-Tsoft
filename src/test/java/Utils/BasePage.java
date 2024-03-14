@@ -1,8 +1,10 @@
 package Utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -95,6 +97,41 @@ public class BasePage {
     public void seleccionarCmbPorValue(WebElement elemento, String value){
         Select selector = new Select(elemento);
         selector.selectByValue(value);
+    }
+
+    public void moverCursorSobreElemento(By localizador) {
+        WebElement elemento = driver.findElement(localizador);
+        Actions acciones = new Actions(driver);
+        acciones.moveToElement(elemento).perform();
+    }
+
+    public void scrollDownHalfPage() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Long windowHeight = (Long) js.executeScript("return window.innerHeight");
+        Long documentHeight = (Long) js.executeScript("return document.body.scrollHeight");
+        Long scrollHeight = documentHeight / 2 - windowHeight / 2;
+        js.executeScript("window.scrollTo(0, " + scrollHeight + ")");
+    }
+
+    public void scrollDownFullPage() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public void controlarSlider(By localizadorSlider, double posicionDeseada) {
+        WebElement slider = driver.findElement(localizadorSlider);
+
+        // Obtener el ancho del slider
+        int sliderWidth = slider.getSize().getWidth();
+
+        // Calcular la posición a la que se quiere deslizar el slider
+        int xOffset = (int) (sliderWidth * posicionDeseada);
+
+        // Crear una instancia de Actions
+        Actions acciones = new Actions(driver);
+
+        // Realizar el arrastre y soltar hasta la posición deseada
+        acciones.clickAndHold(slider).moveByOffset(xOffset, 0).release().perform();
     }
 
 }

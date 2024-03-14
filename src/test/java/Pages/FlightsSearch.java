@@ -17,7 +17,7 @@ public class FlightsSearch extends BasePage {
     }
 
     public void vuelosSinEscalas(){
-        esperarxsegundos(500);
+        esperarxsegundos(1000);
         clic(esperarElementoWeb(bySinEscala));
 
     }

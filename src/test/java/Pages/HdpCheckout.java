@@ -93,6 +93,22 @@ public class HdpCheckout extends BasePage {
     By byMensajeBonoCaducado = By.xpath("//label[contains(text(),'El bono ha caducado.')]");
 
     By byMensajeBonoInvalido =By.xpath("//label[contains(text(),'No hemos encontrado este ')]");
+
+    By byTarifaTren = By. xpath("(//button[@data-testid=\"lmn-ds-btn\"])[2]");
+    By byCheck = By.xpath("//input[@value='MALE']");
+    By byIngresarDiaPasajero = By.xpath("(//input[contains(@name, 'dateOfBirth')])[1]");
+    By byIngresarAnioPasajero = By.xpath("(//input[contains(@name, 'dateOfBirth')])[2]");
+    By byBtnMesPasajero = By.xpath("//button[contains(@data-testid, 'dateOfBirth')]");
+    By byIngresarMesPasajero = By.xpath("//span[contains(text(), 'julio')]");
+    By byBtnDocumentoPasajero = By.xpath("//button[contains(@data-testid, 'documentType')]");
+    By byIngresarDocumentoPasajero = By.xpath("//span[contains(text(), 'Pasaporte')]");
+    By byIngresarNumeroDocumento = By.xpath("//input[contains(@name, 'documentNumber')]");
+    By byCobertura = By.xpath("(//div[@class='insurance__expandable-container'])[1]");
+    By byAsistenciaEspcial = By.xpath("//div[contains(@class, 'special-requests-structured__fieldset-wrapper')]");
+    By byBtnTipoSolicitud = By.xpath("//select[@name='REQUEST_TYPE']");
+    By byMovilidadReducida = By.xpath("//option[@value='REDUCED_MOBILITY']");
+    By byBtnTipoAsistencia = By.id("special-requests-structured-requirements_1");
+    By byTipoAsistencia = By.xpath("//option[@value='WCHR']");
     
     public HdpCheckout(WebDriver driver) {
         super(driver);
@@ -229,7 +245,6 @@ public class HdpCheckout extends BasePage {
         clic(byAnioSegundoPasajero);
         esperarxsegundos(500);
         agregarTexto(byAnioSegundoPasajero,anio);
-
     }
 
     public void ingresarNroDocumentoSegundoPasajero(String nrodocumento, String paisEmision, String dayEmisionDocumento, String anioEmisionDocumento,String dayExpiracionDocumento, String anioExpiracionDocumento){
@@ -313,6 +328,52 @@ public class HdpCheckout extends BasePage {
         agregarTexto(byIngresarDescuento,descuento);
         esperarxsegundos(500);
         clic(byBtnAplicar);
+    }
+
+    public void seleccionarTarifaTren(){
+        esperarxsegundos(10000);
+        clic(esperarElementoWeb(byTarifaTren));
+    }
+
+    public void ingresarDatosPasajeroDni(String dia, String anio, String documento){
+        esperarxsegundos(1000);
+        scrollDownHalfPage();
+        esperarxsegundos(1000);
+        clic(byCheck);
+        esperarxsegundos(1500);
+        agregarTexto(byIngresarDiaPasajero, dia);
+        esperarxsegundos(1000);
+        clic(byBtnMesPasajero);
+        esperarxsegundos(500);
+        clic(byIngresarMesPasajero);
+        esperarxsegundos(1000);
+        agregarTexto(byIngresarAnioPasajero, anio);
+        esperarxsegundos(1000);
+        clic(byBtnDocumentoPasajero);
+        esperarxsegundos(1000);
+        clic(byIngresarDocumentoPasajero);
+        esperarxsegundos(1000);
+        agregarTexto(byIngresarNumeroDocumento, documento);
+        esperarxsegundos(1500);
+
+    }
+    public void CoberturasAdicionales(){
+        scrollDownFullPage();
+        esperarxsegundos(1000);
+        clic(byCobertura);
+    }
+
+    public void AsistenciaEspecial(){
+        esperarxsegundos(1000);
+        clic(byAsistenciaEspcial);
+        esperarxsegundos(1000);
+        clic(byBtnTipoSolicitud);
+        esperarxsegundos(1000);
+        clic(byMovilidadReducida);
+        esperarxsegundos(1000);
+        clic(byBtnTipoAsistencia);
+        esperarxsegundos(1000);
+        clic(byTipoAsistencia);
     }
 
     public String mensajeAlertaBonoCaducado(){
