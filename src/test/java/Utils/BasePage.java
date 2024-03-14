@@ -55,6 +55,11 @@ public class BasePage {
         return espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
     }
 
+    public WebElement esperarElementoWebVisible(By localizador){
+        espera = new WebDriverWait(this.driver,30);
+        return espera.until(ExpectedConditions.visibilityOfElementLocated(localizador));
+    }
+
     public void cargarSitio(String url){
         driver.get(url);
     }

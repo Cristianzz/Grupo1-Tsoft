@@ -46,20 +46,20 @@ public class HomePage extends BasePage {
     }
 
     public void SeleccionarFecha(int mes, int anio) {
-        esperarxsegundos(500);
+        esperarxsegundos(1000);
         clic(byBtnFechaida);
-        esperarxsegundos(1000);
-        Helper.ubicarCalendario(this,mes, anio);
-        esperarxsegundos(3000);
-        clic(byFechaida);
-        esperarxsegundos(1000);
-        clic(byFechaVuelta);
         esperarxsegundos(2000);
+        Helper.ubicarCalendario(this,mes, anio);
+        esperarxsegundos(1000);
+        clic(byFechaida);
+        esperarxsegundos(50);
+        clic(byFechaVuelta);
+        esperarxsegundos(1000);
     }
     public void SeleccionarPasajeros(){
         esperarxsegundos(500);
         clic(esperarElementoWeb(byAumentarAdultos));
-        esperarxsegundos(3000);
+        esperarxsegundos(1000);
     }
 
     /*public void SeleccionarPasajerosPrimeraClase(){
