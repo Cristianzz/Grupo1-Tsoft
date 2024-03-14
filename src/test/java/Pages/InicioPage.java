@@ -13,6 +13,7 @@ public class InicioPage extends BasePage {
     private final By byInputFechaIda = By.xpath("//label[contains(text(),'ida')]/following-sibling::*");
     private final By byBtnBuscar = By.xpath("//button[@aria-label='Buscar']");
     private final By byBtnHoteles = By.xpath("//a[@title='Hoteles']");
+    private final By byBtnAgregarPasajeros = By.xpath("//button[contains(@aria-label,'adultos')][2]");
     private final By byCampoInvalido= By.xpath("//span[@role='alert']");
 
 
@@ -51,7 +52,6 @@ public class InicioPage extends BasePage {
 
     public void seleccionarFechaVuelta(int dia, int mes, int anio){
         esperarxsegundos(1000);
-        Helper.ubicarCalendario(this, mes, anio);
         By fechaVuelta= By.xpath("(//span[@id='"+(mes-1)+"-"+anio+"']/following-sibling::*/button[text()='"+dia+"'])");
         clic(esperarElementoWeb(fechaVuelta));
     }
@@ -59,7 +59,7 @@ public class InicioPage extends BasePage {
     public void agregarPasajeros(int pasajeros){
         for(int i=0; i<pasajeros; i++){
             esperarxsegundos(1000);
-            clic(esperarElementoWeb(By.xpath("//button[contains(@aria-label,'adultos')][2]")));
+            clic(esperarElementoWeb(byBtnAgregarPasajeros));
         }
     }
 
@@ -69,7 +69,7 @@ public class InicioPage extends BasePage {
     }
 
     public void irHoteles() {
-        esperarxsegundos(this.getTiempoEspera());
+        esperarxsegundos(2000);
         clic(esperarElementoWeb(byBtnHoteles));
     }
 

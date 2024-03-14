@@ -9,7 +9,9 @@ public class HotelesPage extends BasePage {
 
     private final By byInputUbicacion = By.xpath("//input[contains(@aria-label, 'alojamiento')]");
     private final By byInputFechaEntrada = By.xpath("//button[@aria-label='Fecha de entrada']");
-    private final By byBtnPersonas = By.xpath("//label[contains(text(), 'Personas')]/following-sibling::*");
+    private final By byBtnAgregarPersonas = By.xpath("//button[contains(@aria-label,'adultos')][2]");
+    private final By byBtnAgregarHabitaciones = By.xpath("//button[contains(text(),'habitaci')]");
+    private final By byBtnBuscar = By.xpath("//button[@aria-label='Buscar']");
 
     public HotelesPage(WebDriver driver) {
         super(driver);
@@ -38,20 +40,20 @@ public class HotelesPage extends BasePage {
     public void agregarPersonas(int personas){
         for(int i=0; i<personas; i++){
             esperarxsegundos(1000);
-            clic(esperarElementoWeb(By.xpath("//button[contains(@aria-label,'adultos')][2]")));
+            clic(esperarElementoWeb(byBtnAgregarPersonas));
         }
     }
 
     public void agregarHabitaciones(int habitacion){
         for(int i=0; i<habitacion; i++){
             esperarxsegundos(1000);
-            clic(esperarElementoWeb(By.xpath("//button[contains(text(),'habitaci')]")));
+            clic(esperarElementoWeb(byBtnAgregarHabitaciones));
         }
     }
 
     public void presionarBuscar(){
         esperarxsegundos(1000);
-        clic(esperarElementoWeb(By.xpath("//button[@aria-label='Buscar']")));
+        clic(esperarElementoWeb(byBtnBuscar));
     }
 
 }

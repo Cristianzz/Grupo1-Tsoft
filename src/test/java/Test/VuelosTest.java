@@ -38,8 +38,8 @@ public class VuelosTest {
         home.aceptarCookies(); // Paso 1 - Aceptar cookies
         home.ingresarOrigen("Lima"); // Paso 2 - Ingresar origen valido
         home.ingresarDestino("abcd-2"); // Paso 3 - Ingresar destino inválida
-        home.seleccionarFechaIda(3, 12, 2024); // Paso 4 - Seleccionar fecha de ida
-        home.seleccionarFechaVuelta(6, 1, 2025); // Paso 5 - Seleccionar fecha de vuelta
+        home.seleccionarFechaIda(3, 5, 2024); // Paso 4 - Seleccionar fecha de ida
+        home.seleccionarFechaVuelta(8, 5, 2024); // Paso 5 - Seleccionar fecha de vuelta
         home.agregarPasajeros(2); // Paso 6 - Seleccionar adultos
         home.presionarBuscar(); // Paso 7 - Realizar búsqueda
         // assert compara mensaje de error de campo con el mensaje esperado

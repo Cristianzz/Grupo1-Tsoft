@@ -8,15 +8,32 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Set;
+
 public class BasePage {
 
     private int tiempoEspera = 500;
+
+    String ventanaPrincipal;
+
     //Wrapper de Selenium
     private WebDriver driver;
     private WebDriverWait espera;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        this.ventanaPrincipal  = driver.getWindowHandle();
+    }
+
+    public void enfocarNuevaVentana(){
+        Set<String> ventanas = driver.getWindowHandles();
+        for (String ventana : ventanas) {
+            // Si la ventana no es la ventana principal, cambia a ella
+            if (!ventana.equals(ventanaPrincipal)) {
+                driver.switchTo().window(ventana);
+                break;
+            }
+        }
     }
 
     public WebDriver getDriver() {
