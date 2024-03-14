@@ -3,6 +3,7 @@ package Test;
 import Pages.FlightsSearch;
 import Pages.HomePage;
 import Pages.checkout;
+import Utils.FixEncoding;
 import Utils.Helper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
@@ -70,7 +71,7 @@ public class CpsRumbo {
         flights.vuelosSinEscalas();
     }
 
-    @Test
+    //@Test
     public void TCV_005_reservaVuelos_codigoDescuentoCaducado(){
         home.AceptarCookies();
         home.IngresarOrigen("Lima");
@@ -96,7 +97,7 @@ public class CpsRumbo {
         Assertions.assertEquals("El bono ha caducado.",check.mensajeAlertaBonoCaducado());
     }
 
-    //@Test
+    @Test
     public void TCV_006_reservaVuelos_codigoDescuentoNOExitoso(){
         home.AceptarCookies();
         home.IngresarOrigen("Lima");
@@ -105,6 +106,22 @@ public class CpsRumbo {
         home.SeleccionarPasajeros();
         home.SeleccionarMetodoPago();
         home.Buscar();
+        flights.SeleccionarVuelo();
+        check.seleccionarTarifa();
+        check.ingresarDatosContacto("Juan","Perez","JuanPerz@gmail.com","Per","999888777");
+        check.ingresarDireccion("Jr. Union","111","15762","Lima","Perú");
+        check.ingresarDatosPrimerPasajero("14","2000");
+        check.ingresarNroDocumentoPrimerPasajero("999999999", "Per","21","2021","21","2024");
+        check.ingresarDatosSegundoPasajero("Maria","Cisneros","05","1999");
+        check.ingresarNroDocumentoSegundoPasajero("888888888","Per","01","2021","01","2024");
+        check.reporteEquipajePrimerPasajero();
+        check.reporteEquipajeSegundoPasajero();
+        check.seleccionarSiguiente();
+        check.seleccionarSinCobertura();
+        check.seleccionarSiguiente();
+        check.ingresarDescuentoInvalido("APP16");
+        String Esperado = FixEncoding.corregirEncoding("No hemos encontrado este código descuento.");
+        Assertions.assertEquals(Esperado,check.mensajeAlertaBonoInvalido());
     }
 
 

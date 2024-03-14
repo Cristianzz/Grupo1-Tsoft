@@ -90,6 +90,8 @@ public class checkout extends BasePage {
 
     //Campo Bono Caducado
     By byMensajeBonoCaducado = By.xpath("//label[contains(text(),\"El bono ha caducado.\")]");
+
+    By byMensajeBonoInvalido =By.xpath("//label[contains(text(),\"No hemos encontrado este \")]");
     public checkout(WebDriver driver) {
         super(driver);
     }
@@ -300,7 +302,21 @@ public class checkout extends BasePage {
         clic(byBtnAplicar);
     }
 
+    public void ingresarDescuentoInvalido(String descuento){
+        esperarxsegundos(1000);
+        clic(esperarElementoWeb(bySeleccionarDescuento));
+        esperarxsegundos(500);
+        clic(byIngresarDescuento);
+        esperarxsegundos(500);
+        agregarTexto(byIngresarDescuento,descuento);
+        esperarxsegundos(500);
+        clic(byBtnAplicar);
+    }
+
     public String mensajeAlertaBonoCaducado(){
         return (obtenerTexto(esperarElementoWeb(byMensajeBonoCaducado)));
+    }
+    public String mensajeAlertaBonoInvalido(){
+        return (obtenerTexto(esperarElementoWeb(byMensajeBonoInvalido)));
     }
 }
