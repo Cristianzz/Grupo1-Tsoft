@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
+
+    private int tiempoEspera = 500;
     //Wrapper de Selenium
     private WebDriver driver;
     private WebDriverWait espera;
@@ -89,4 +91,11 @@ public class BasePage {
         selector.selectByValue(value);
     }
 
+    public void setTiempoEspera(int tiempoEspera) {
+        this.tiempoEspera = tiempoEspera;
+    }
+
+    public int getTiempoEspera() {
+        return tiempoEspera;
+    }
 }

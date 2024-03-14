@@ -1,7 +1,6 @@
 package Test;
 
-import Pages.FlightsSearch;
-import Pages.HomePage;
+import Pages.InicioPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VuelosTest {
 
-    // Atributos
-    HomePage home;
-    FlightsSearch flights;
+
+    InicioPage home;
     WebDriver driver;
 
     @BeforeAll
@@ -24,8 +22,7 @@ public class VuelosTest {
     @BeforeEach
     public void preCondiciones() {
         driver = new ChromeDriver();
-        home = new HomePage(driver);
-        flights = new FlightsSearch(driver);
+        home = new InicioPage(driver);
         home.cargarSitio("https://www.rumbo.es");
         home.maximizar();
     }
@@ -41,12 +38,12 @@ public class VuelosTest {
         home.aceptarCookies(); // Paso 1 - Aceptar cookies
         home.ingresarOrigen("Lima"); // Paso 2 - Ingresar origen valido
         home.ingresarDestino("abcd-2"); // Paso 3 - Ingresar destino inválida
-        home.seleccionFechaIda(3, 12, 2024); // Paso 4 - Seleccionar fecha de ida
-        home.seleccionFechaVuelta(6, 1, 2025); // Paso 5 - Seleccionar fecha de vuelta
-        home.seleccionarPasajerosAdultos(2); // Paso 6 - Seleccionar adultos
-        home.realizarBusqueda(); // Paso 7 - Realizar búsqueda
+        home.seleccionarFechaIda(3, 12, 2024); // Paso 4 - Seleccionar fecha de ida
+        home.seleccionarFechaVuelta(6, 1, 2025); // Paso 5 - Seleccionar fecha de vuelta
+        home.agregarPasajeros(2); // Paso 6 - Seleccionar adultos
+        home.presionarBuscar(); // Paso 7 - Realizar búsqueda
         // assert compara mensaje de error de campo con el mensaje esperado
-        assertEquals("Introduce ciudad o aeropuerto de destino", home.textoCampoInvalido());
+        assertEquals("Introduce ciudad o aeropuerto de destino", home.obtenerCampoInvalido());
     }
 
 }
