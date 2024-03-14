@@ -3,11 +3,12 @@ package Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.JavascriptExecutor;
+
 
 public class BasePage {
     //Wrapper de Selenium
@@ -64,8 +65,9 @@ public class BasePage {
         driver.quit();
     }
 
-    public void agregarTexto(By localizador, String texto){
+    public By agregarTexto(By localizador, String texto){
         driver.findElement(localizador).sendKeys(texto);
+        return localizador;
     }
     public void agregarTexto(WebElement elemento, String texto){
         elemento.sendKeys(texto);
@@ -95,5 +97,35 @@ public class BasePage {
         Actions acciones = new Actions(driver);
         acciones.moveToElement(elemento).perform();
     }
+
+    public void scrollDownHalfPage() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Long windowHeight = (Long) js.executeScript("return window.innerHeight");
+        Long documentHeight = (Long) js.executeScript("return document.body.scrollHeight");
+        Long scrollHeight = documentHeight / 2 - windowHeight / 2;
+        js.executeScript("window.scrollTo(0, " + scrollHeight + ")");
+    }
+
+    public void scrollDownFullPage() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public void controlarSlider(By localizadorSlider, double posicionDeseada) {
+        WebElement slider = driver.findElement(localizadorSlider);
+
+        // Obtener el ancho del slider
+        int sliderWidth = slider.getSize().getWidth();
+
+        // Calcular la posición a la que se quiere deslizar el slider
+        int xOffset = (int) (sliderWidth * posicionDeseada);
+
+        // Crear una instancia de Actions
+        Actions acciones = new Actions(driver);
+
+        // Realizar el arrastre y soltar hasta la posición deseada
+        acciones.clickAndHold(slider).moveByOffset(xOffset, 0).release().perform();
+    }
+
 
 }
