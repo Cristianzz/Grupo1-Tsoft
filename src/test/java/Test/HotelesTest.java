@@ -87,4 +87,26 @@ public class HotelesTest {
         checkout.seleccionarSeguroCancelacion(); // Paso 12 - Seleccionar seguro de cancelacion
     }
 
+    @Test
+    @DisplayName("TCH_006: Reserva - Pago con Tarjeta")
+    public void TCH_006(){
+        inicio.aceptarCookies(); // Paso 1 - Aceptar Cookies
+        inicio.irHoteles(); // Paso 2 - Redireccionar a Hoteles
+        hoteles.seleccionarDestino("Madrid"); // Paso 3 - Ingresar Destino
+        hoteles.seleccionarFechaEntrada(22, 5, 2024); // Paso 3 - Seleccionar Fecha de Entrada
+        hoteles.seleccionarFechaSalida(6, 6, 2024); // Paso 4 - Seleccionar Fecha de Salida
+        hoteles.agregarPersonas(0); // Paso 5 - Seleccionar Personas
+        hoteles.presionarBuscar(); // Paso 6 - Presionar Buscar
+        hdp.irHotelDetalles(1); // Paso 7 - Seleccionar el hospedaje
+        hotelDetalles.seleccionarVerMas(); // Paso 8 - Seleccionar Cta
+        hotelDetalles.seleccionarRegimen(); // Paso 9 - Seleccionar el regimen
+        hotelDetalles.seleccionarHabitacion(1); // Paso 10 - Elejir la habitacion
+        checkout.ingresarDatosContacto("John", "Doe", "john.doe@gmail.com","51","987654321"); // Paso 11 - Ingresar datos de contacto
+        checkout.seleccionarSeguroCancelacion(); // Paso 12 - Seleccionar seguro de cancelacion
+        checkout.ingresarTarjeta("0123456789123456", 321); // Paso 13 - Ingresar datos de tarjeta
+        // Assert compara mensaje de error de campo con el mensaje esperado
+        String esperado = FixingCoding.corregirEncoding("Introduce un número válido.");
+        assertEquals(esperado, checkout.obtenerCampoInvalido());
+    }
+
 }
