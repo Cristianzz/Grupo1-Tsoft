@@ -20,10 +20,8 @@ public class TrenesPage extends BasePage {
     By byBtnBuscar = By.xpath("(//button[contains(@aria-label, \"Buscar\")])[1]");
     By byEscogerViaje = By.xpath("//*[contains(@class, \"FullTransportSummary__SummaryColumn\")][1]");
     By byBtnSeleccionarViajeTren = By.xpath("//button[contains(@class, \"Button__LmnDsButton\") and contains(@class, \"TripCardBookButton__BrgUiBootstrapSizedButton\")]\n") ;
-    By byTarifaTren = By. xpath("(//button[@data-testid=\"lmn-ds-btn\"])[2]");
-    By byDatosPersonalesName = By.xpath("//div[@data-testid=\"name\"]");
-    By byDatosPersonalesSurName = By.xpath("//div[@data-testid=\"surname\"]");
-    By byDatosPersonalesEmail = By.xpath("//div[@data-testid=\"email\"]");
+    By bySliderIdaTrenes = By.xpath("(//div[contains(@class, 'Slider__TrackWrapper')])[2]");
+    By bySliderVueltaTrenes = By.xpath("(//div[contains(@class, 'Slider__TrackWrapper')])[3]");
 
     public TrenesPage(WebDriver driver) {super(driver);}
 
@@ -79,9 +77,12 @@ public class TrenesPage extends BasePage {
     }
 
     public void FiltroHorario(){
-        esperarxsegundos(1000);
-        scrollDownHalfPage();
-        esperarxsegundos(2000);
+        esperarxsegundos(5000);
+        //scrollDownHalfPage();
+        esperarxsegundos(3000);
+        controlarSlider(bySliderIdaTrenes,0.1);
+        esperarxsegundos(5000);
+        controlarSlider(bySliderVueltaTrenes,0.01);
 
     }
 

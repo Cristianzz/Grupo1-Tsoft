@@ -103,7 +103,7 @@ public class CpsRumbo {
 */
 
    ///////-------- Trenes ----------////////
-   @Test
+  /* @Test
     public void TCT_001(){
         home.AceptarCookies();
         trenesPage.Vermas();
@@ -111,7 +111,7 @@ public class CpsRumbo {
         trenesPage.IngresarDestinoTren("Barcelona");
         trenesPage.SeleccionarFechaTren(5,2024);
 
-    }
+    }*/
    /* @Test
     public void TCT_002(){
         home.AceptarCookies();
@@ -137,7 +137,35 @@ public class CpsRumbo {
         checkout.DatosPasajero("15","2000","134653");
 
     }*/
+    @Test
+    public void TCT_003(){
+        home.AceptarCookies();
+        trenesPage.Vermas();
+        trenesPage.IngresarOrigenTren("Albacete");
+        trenesPage.IngresarDestinoTren("Alicante");
+        trenesPage.SeleccionarFechaTren(5,2024);
+        trenesPage.SeleccionarPasajerosTren();
+        trenesPage.Buscar();
+        trenesPage.FiltroHorario();
 
+    }
+
+     /*@Test
+    public void TCT_005){
+        home.AceptarCookies();
+        trenesPage.Vermas();
+        trenesPage.IngresarOrigenTren("Albacete");
+        trenesPage.IngresarDestinoTren("Alicante");
+        trenesPage.SeleccionarFechaTren(5,2024);
+        trenesPage.SeleccionarPasajerosTren();
+        trenesPage.Buscar();
+        trenesPage.SeleccionarViajeTren();
+        // checkout.SeleccionarTarifaTren();
+        checkout.DatosContacto("Rodrigo","Sosa","rodrisosa@gmail.com","987654321");
+        checkout.DatosPasajero("15","2000","134653");
+        checkout.AsistenciaEspecial();
+        checkout.CoberturasAdicionales();
+    }*/
     /*@Test
     public void TCT_006(){
         home.AceptarCookies();
@@ -152,7 +180,6 @@ public class CpsRumbo {
         checkout.DatosContacto("Rodrigo","Sosa","rodrisosa@gmail.com","987654321");
         checkout.DatosPasajero("15","2000","134653");
         checkout.AsistenciaEspecial();
-        checkout.CoberturasAdicionales();
     }*/
 
 
