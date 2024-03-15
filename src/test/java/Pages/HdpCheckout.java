@@ -123,13 +123,12 @@ public class HdpCheckout extends BasePage {
     public void seleccionarTarifa(){
         esperarxsegundos(1000);
         clic(esperarElementoWeb(byBtnElegirClassic));
+        esperarxsegundos(2000);
 
     }
 
     public void ingresarDatosContacto(String name, String surname, String email,String prefijo, String telefono){
-        esperarxsegundos(2000);
-        clic(byIngresarNameContacto);
-        esperarxsegundos(500);
+        esperarxsegundos(3000);
         agregarTexto(byIngresarNameContacto,name);
         esperarxsegundos(500);
         clic(byIngresarSurnameContacto);
@@ -178,8 +177,6 @@ public class HdpCheckout extends BasePage {
     public void ingresarDatosPrimerPasajero(String day, String anio){
         esperarxsegundos(500);
         clic(byCheckSr);
-        esperarxsegundos(500);
-        clic(byDayPrimerPasajero);
         esperarxsegundos(500);
         agregarTexto(byDayPrimerPasajero,day);
         esperarxsegundos(500);
@@ -231,8 +228,6 @@ public class HdpCheckout extends BasePage {
     public void ingresarDatosSegundoPasajero(String name, String surname,String day, String anio){
         esperarxsegundos(500);
         clic(byCheckSra);
-        esperarxsegundos(500);
-        clic(byNameSegundoPasajero);
         esperarxsegundos(500);
         agregarTexto(byNameSegundoPasajero,name);
         esperarxsegundos(500);

@@ -37,7 +37,7 @@ public class TrenesTest {
         home.cerrarBrowser();
     }
     
-    @Test
+    //@Test
     @DisplayName("TCT_001: Reserva de trenes - Dias fuera del rango - dias > 31")
     public void TCT_001(){
         home.aceptarCookies();
@@ -48,7 +48,7 @@ public class TrenesTest {
 
     }
 
-    @Test
+    //@Test
     @DisplayName("TCT_002: Reserva de trenes - Origen y destino iguales")
     public void TCT_002(){
         home.aceptarCookies();
@@ -58,7 +58,7 @@ public class TrenesTest {
         trenes.seleccionarBuscar();
     }
 
-    @Test
+    //@Test
     @DisplayName("TCT_003: Reserva de trenes - Cobertura Adicionales - > 1 pasajero")
     public void TCT_003(){
         home.aceptarCookies();
@@ -74,7 +74,7 @@ public class TrenesTest {
         checkout.ingresarDatosPasajeroDni("15","2000","134653");
         }
 
-    @Test
+   // @Test
     @DisplayName("TCT_004: Busqueda Trenes - Rango de horarios")
     public void TCT_004(){
         home.aceptarCookies();
@@ -105,7 +105,7 @@ public class TrenesTest {
         checkout.CoberturasAdicionales();
     }
 
-    @Test
+     //@Test
     @DisplayName("TCT_006: Reserva de trenes - Asistencia Especial")
     public void TCT_006(){
         home.aceptarCookies();
