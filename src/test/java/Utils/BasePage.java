@@ -13,23 +13,18 @@ public class BasePage {
     //Wrapper de Selenium
     private WebDriver driver;
     private WebDriverWait espera;
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
-
     public WebDriver getDriver() {
         return driver;
     }
-
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
-
     public WebDriverWait getEspera() {
         return espera;
     }
-
     public void setEspera(WebDriverWait espera) {
         this.espera = espera;
     }
@@ -59,11 +54,9 @@ public class BasePage {
     public void cargarSitio(String url){
         driver.get(url);
     }
-
     public void cerrarBrowser(){
         driver.quit();
     }
-
     public void agregarTexto(By localizador, String texto){
         driver.findElement(localizador).sendKeys(texto);
     }
@@ -89,7 +82,6 @@ public class BasePage {
         Select selector = new Select(elemento);
         selector.selectByValue(value);
     }
-
     public void moverCursorSobreElemento(By localizador) {
         WebElement elemento = driver.findElement(localizador);
         Actions acciones = new Actions(driver);

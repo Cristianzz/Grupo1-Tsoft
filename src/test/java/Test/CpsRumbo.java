@@ -31,13 +31,11 @@ public class CpsRumbo {
         home.cargarSitio("https://www.rumbo.es/");
         home.maximizar();
     }
-
     @AfterEach
     public void posCondiciones(){
         //home.cerrarBrowser();
     }
-
-    /*@Test
+    @Test
     public void TCH_001_IrAPaginaHoteles_AgregarHuspedes() {
         home.AceptarCookies();
         home.irAPaginaHoteles(); // Hacer clic en el menú de hoteles
@@ -45,8 +43,7 @@ public class CpsRumbo {
         hotel.SeleccionarFecha(5,2024);
         hotel.SeleccionarPasajeros();
         hotel.Buscar();
-    }*/
-    /*
+    }
     @Test
     public void TCH_002_IrAPaginaHoteles_busquedaconestrellas() {
         home.AceptarCookies();
@@ -57,11 +54,13 @@ public class CpsRumbo {
         hotel.Buscar();
         hotel.FiltroEstrellasHotel();
     }
-    */
     @Test
     public void TCH_003_IrAPaginaTrenes_busquedaconestrellas() {
         home.AceptarCookies();
         trenes.Vermas();
-        // Hacer clic en el menú de hoteles
+        trenes.IngresarOrigen("Madrid");
+        trenes.IngresarDestino("Barcelona");
+        trenes.SeleccionarFechaTrenes(5,2024);
+        trenes.BuscardorTrenes();
     }
 }

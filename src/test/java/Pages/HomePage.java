@@ -33,15 +33,11 @@ public class HomePage extends BasePage {
     By byPillStarsContainer = By.xpath("//*[@id='Pill-StarsContainer']");
     By byPillStarsContainer2 = By.id("exp_elem_hotel_stars_3");
     By byBtnAplicarEstrellas= By.xpath("//button[contains(text(),\"Aplicar\")]");
-
     By byMenuTrenes = By.xpath("//a[@href='https://www.rumbo.es/trenes/']");
-
-
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
     public void AceptarCookies() {
         esperarxsegundos(5000);
         clic(esperarElementoWeb(byAceptarCookie));
@@ -49,7 +45,6 @@ public class HomePage extends BasePage {
     public void irAPaginaHoteles() {
         clic(esperarElementoWeb(byMenuHoteles));
     }
-
     public void irAPaginaTrenes() {
         clic(esperarElementoWeb(byMenuTrenes));
     }
