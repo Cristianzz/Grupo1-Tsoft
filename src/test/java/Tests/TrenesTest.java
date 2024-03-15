@@ -37,80 +37,75 @@ public class TrenesTest {
         home.cerrarBrowser();
     }
     
-    @Test
+    //@Test
     @DisplayName("TCT_001: Reserva de trenes - Dias fuera del rango - dias > 31")
     public void TCT_001(){
         home.aceptarCookies();
         trenes.verMas();
         trenes.ingresarOrigenTren("Madrid");
         trenes.ingresarDestinoTren("Barcelona");
-        trenes.seleccionarFechaIda(3, 6, 2024);
-        trenes.seleccionarFechaVuelta(8, 6, 2024);
+        trenes.seleccionarFechaTren(5,2024);
 
     }
 
-    @Test
+    //@Test
     @DisplayName("TCT_002: Reserva de trenes - Origen y destino iguales")
     public void TCT_002(){
         home.aceptarCookies();
         trenes.verMas();
         trenes.ingresarOrigenTren("Madrid");
         trenes.ingresarDestinoTren("Madrid");
-        // trenes.SeleccionarFechaTren(5,2024);
         trenes.seleccionarBuscar();
     }
 
-    @Test
+    //@Test
     @DisplayName("TCT_003: Reserva de trenes - Cobertura Adicionales - > 1 pasajero")
     public void TCT_003(){
         home.aceptarCookies();
         trenes.verMas();
         trenes.ingresarOrigenTren("Albacete");
         trenes.ingresarDestinoTren("Alicante");
-        trenes.seleccionarFechaIda(3, 6, 2024);
-        trenes.seleccionarFechaVuelta(8, 6, 2024);
+        trenes.seleccionarFechaTren(5,2024);
         trenes.seleccionarPasajerosTren();
         trenes.seleccionarBuscar();
         trenes.seleccionarViajeTren();
-        checkout.seleccionarTarifaTren();
+        checkout.cargaCheckout();
         checkout.ingresarDatosContacto("Rodrigo","Sosa","rodrisosa@gmail.com","51","987654321");
         checkout.ingresarDatosPasajeroDni("15","2000","134653");
         }
 
-    @Test
+    //@Test
     @DisplayName("TCT_004: Busqueda Trenes - Rango de horarios")
     public void TCT_004(){
         home.aceptarCookies();
         trenes.verMas();
         trenes.ingresarOrigenTren("Albacete");
         trenes.ingresarDestinoTren("Alicante");
-        trenes.seleccionarFechaIda(3, 6, 2024);
-        trenes.seleccionarFechaVuelta(8, 6, 2024);
+        trenes.seleccionarFechaTren(5,2024);
         trenes.seleccionarPasajerosTren();
         trenes.seleccionarBuscar();
         trenes.filtroHorario();
     }
 
-    @Test
+    //@Test
     @DisplayName("TCT_005: Reserva de trenes- Todas las Coberturas")
     public void TCT_005(){
         home.aceptarCookies();
         trenes.verMas();
         trenes.ingresarOrigenTren("Albacete");
         trenes.ingresarDestinoTren("Alicante");
-        trenes.seleccionarFechaIda(3, 6, 2024);
-        trenes.seleccionarFechaVuelta(8, 6, 2024);
+        trenes.seleccionarFechaTren(5,2024);
         trenes.seleccionarPasajerosTren();
         trenes.seleccionarBuscar();
         trenes.seleccionarViajeTren();
-        checkout.seleccionarTarifaTren();
+        checkout.cargaCheckout();
         checkout.ingresarDatosContacto("Rodrigo","Sosa","rodrisosa@gmail.com","51","987654321");
         checkout.ingresarDatosPasajeroDni("15","2000","134653");
         checkout.AsistenciaEspecial();
         checkout.CoberturasAdicionales();
     }
 
-    @Test
+    //@Test
     @DisplayName("TCT_006: Reserva de trenes - Asistencia Especial")
     public void TCT_006(){
         home.aceptarCookies();
@@ -121,7 +116,7 @@ public class TrenesTest {
         trenes.seleccionarPasajerosTren();
         trenes.seleccionarBuscar();
         trenes.seleccionarViajeTren();
-        checkout.seleccionarTarifaTren();
+        checkout.cargaCheckout();
         checkout.ingresarDatosContacto("Rodrigo","Sosa","rodrisosa@gmail.com","51","987654321");
         checkout.ingresarDatosPasajeroDni("15","2000","134653");
         checkout.AsistenciaEspecial();

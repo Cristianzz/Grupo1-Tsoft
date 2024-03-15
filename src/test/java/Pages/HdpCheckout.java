@@ -109,9 +109,15 @@ public class HdpCheckout extends BasePage {
     By byMovilidadReducida = By.xpath("//option[@value='REDUCED_MOBILITY']");
     By byBtnTipoAsistencia = By.id("special-requests-structured-requirements_1");
     By byTipoAsistencia = By.xpath("//option[@value='WCHR']");
+    By bySeguroCancelacion = By.xpath("//div[@class='insurance__expandable-upper-box']");
+    By byCampoInvalido = By.xpath("//span[@data-testid='input-helper-text']");
     
     public HdpCheckout(WebDriver driver) {
         super(driver);
+    }
+
+    public void cargaCheckout(){
+        esperarxsegundos(10000);
     }
 
     public void seleccionarTarifa(){
@@ -374,6 +380,23 @@ public class HdpCheckout extends BasePage {
         clic(byBtnTipoAsistencia);
         esperarxsegundos(1000);
         clic(byTipoAsistencia);
+    }
+
+    public void seleccionarSeguroCancelacion() {
+        esperarxsegundos(1000);
+        clic(esperarElementoWeb(bySeguroCancelacion));
+    }
+
+    public void ingresarTarjeta(String tarjeta, int cvv) {
+        esperarxsegundos(1000);
+        agregarTexto(By.xpath("//input[@name='creditCard.cardNumber']"), tarjeta);
+        esperarxsegundos(1000);
+        agregarTexto(By.xpath("//input[@name='creditCard.cvv']"), String.valueOf(cvv));
+    }
+
+    public String obtenerCampoInvalido() {
+        esperarxsegundos(1000);
+        return obtenerTexto(esperarElementoWeb(byCampoInvalido));
     }
 
     public String mensajeAlertaBonoCaducado(){

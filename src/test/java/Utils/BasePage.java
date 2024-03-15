@@ -10,13 +10,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Set;
+
 public class BasePage {
+    String ventanaPrincipal;
     //Wrapper de Selenium
     private WebDriver driver;
     private WebDriverWait espera;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        this.ventanaPrincipal  = driver.getWindowHandle();
     }
 
     public WebDriver getDriver() {
@@ -132,6 +136,17 @@ public class BasePage {
 
         // Realizar el arrastre y soltar hasta la posición deseada
         acciones.clickAndHold(slider).moveByOffset(xOffset, 0).release().perform();
+    }
+
+    public void enfocarNuevaVentana(){
+        Set<String> ventanas = driver.getWindowHandles();
+        for (String ventana : ventanas) {
+            // Si la ventana no es la ventana principal, cambia a ella
+            if (!ventana.equals(ventanaPrincipal)) {
+                driver.switchTo().window(ventana);
+                break;
+            }
+        }
     }
 
 }
