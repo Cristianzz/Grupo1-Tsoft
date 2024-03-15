@@ -44,8 +44,7 @@ public class VuelosTest {
         home.aceptarCookies();
         home.ingresarOrigen("Lima");
         home.ingresarDestino("Santiago (SCL)");
-        home.seleccionarFechaIda(3, 7, 2024);
-        home.seleccionarFechaVuelta(8, 7, 2024);
+        home.seleccionarFecha(7, 2024);
         home.agregarPasajeros(1);
         home.presionarBuscar();
         Assertions.assertTrue(flights.isFlightsSearch());
@@ -57,8 +56,7 @@ public class VuelosTest {
         home.aceptarCookies();
         home.ingresarOrigen("Lima");
         home.ingresarDestino("abcd-2");
-        home.seleccionarFechaIda(3, 7, 2024);
-        home.seleccionarFechaVuelta(8, 7, 2024);
+        home.seleccionarFecha(7, 2024);
         home.agregarPasajeros(1);
         home.presionarBuscar();
         assertEquals("Introduce ciudad o aeropuerto de destino", home.obtenerCampoInvalido());
@@ -70,8 +68,7 @@ public class VuelosTest {
         home.aceptarCookies();
         home.ingresarOrigen("Lima");
         home.ingresarDestino("Santiago (SCL)");
-        home.seleccionarFechaIda(3, 7, 2024);
-        home.seleccionarFechaVuelta(8, 7, 2024);
+        home.seleccionarFecha(7, 2024);
         home.seleccionarPrimerClase();
         home.seleccionarMetodoPago();
         home.presionarBuscar();
@@ -84,8 +81,7 @@ public class VuelosTest {
         home.aceptarCookies();
         home.ingresarOrigen("Lima");
         home.ingresarDestino("Santiago (SCL)");
-        home.seleccionarFechaIda(3, 7, 2024);
-        home.seleccionarFechaVuelta(8, 7, 2024);
+        home.seleccionarFecha(7, 2024);
         home.agregarPasajeros(1);
         home.seleccionarMetodoPago();
         home.presionarBuscar();
@@ -98,8 +94,7 @@ public class VuelosTest {
         home.aceptarCookies();
         home.ingresarOrigen("Lima");
         home.ingresarDestino("Santiago (SCL)");
-        home.seleccionarFechaIda(3, 7, 2024);
-        home.seleccionarFechaVuelta(8, 7, 2024);
+        home.seleccionarFecha(7, 2024);
         home.agregarPasajeros(1);
         home.seleccionarMetodoPago();
         home.presionarBuscar();
@@ -126,8 +121,7 @@ public class VuelosTest {
         home.aceptarCookies();
         home.ingresarOrigen("Lima");
         home.ingresarDestino("Santiago (SCL)");
-        home.seleccionarFechaIda(3, 7, 2024);
-        home.seleccionarFechaVuelta(8, 7, 2024);
+        home.seleccionarFecha(7, 2024);
         home.agregarPasajeros(1);
         home.seleccionarMetodoPago();
         home.presionarBuscar();

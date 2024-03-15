@@ -6,18 +6,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
-    By byAceptarCookie = By.xpath("//button[contains(text(),'Aceptar todo')]");
-    By byClasePasajero = By.xpath("//button[contains(text(),'Primera')]");
-    By bySigClasePasajero = By.xpath("//button[ @class='d-128ddiu']"); // buscar mejor xpath
-    By byBtnMetodoPago=By.xpath("(//button[@class='d-1p45yi9'])[1]"); // buscar mejor xpath
-    By byCheckAmerican= By.xpath("//li[contains(text(), 'American')]//button");
-    By byInputOrigen = By.xpath("//label[contains(text(),'Origen')]/following-sibling::*/input");
-    By byInputDestino = By.xpath("//label[contains(text(),'Destino')]/following-sibling::*/input");
-    By byInputFechaIda = By.xpath("//label[contains(text(),'ida')]/following-sibling::*");
-    By byBtnBuscar = By.xpath("//button[@aria-label='Buscar']");
-    By byBtnHoteles = By.xpath("//a[@title='Hoteles']");
-    By byBtnAgregarPasajeros = By.xpath("//button[contains(@aria-label,'adultos')][2]");
-    By byCampoInvalido= By.xpath("//span[@role='alert']");
+    private final By byAceptarCookie = By.xpath("//button[contains(text(),'Aceptar todo')]");
+    private final By byClasePasajero = By.xpath("//button[contains(text(),'Primera')]");
+    private final By bySigClasePasajero = By.xpath("//button[ @class='d-128ddiu']");
+    private final By byBtnMetodoPago=By.xpath("(//button[@class='d-1p45yi9'])[1]");
+    private final By byCheckAmerican= By.xpath("//li[contains(text(), 'American')]//button");
+    private final By byInputOrigen = By.xpath("//label[contains(text(),'Origen')]/following-sibling::*/input");
+    private final By byInputDestino = By.xpath("//label[contains(text(),'Destino')]/following-sibling::*/input");
+    private final By byInputFechaIda = By.xpath("//label[contains(text(),'ida')]/following-sibling::*");
+    private final By byFechaida = By.xpath("(//div[@class='d-iy1bge']/button[1])[1]");
+    private final By byFechaVuelta = By.xpath("(//div[@class='d-iy1bge']/button[7])[1]");
+    private final By byBtnBuscar = By.xpath("//button[@aria-label='Buscar']");
+    private final By byBtnHoteles = By.xpath("//a[@title='Hoteles']");
+    private final By byBtnAgregarPasajeros = By.xpath("//button[contains(@aria-label,'adultos')][2]");
+    private final By byCampoInvalido= By.xpath("//span[@role='alert']");
 
 
     public HomePage(WebDriver driver) {
@@ -43,20 +45,16 @@ public class HomePage extends BasePage {
         agregarTexto(byInputDestino, destino);
     }
 
-    public void seleccionarFechaIda(int dia, int mes, int anio){
+    public void seleccionarFecha(int mes, int anio) {
         esperarxsegundos(1000);
-        clic(esperarElementoWeb(byInputFechaIda));
+        clic(byInputFechaIda);
+        esperarxsegundos(2000);
+        Helper.ubicarCalendario(this,mes, anio);
         esperarxsegundos(1000);
-        Helper.ubicarCalendario(this, mes, anio);
+        clic(byFechaida);
+        esperarxsegundos(50);
+        clic(byFechaVuelta);
         esperarxsegundos(1000);
-        By fechaIda= By.xpath("(//span[@id='"+(mes-1)+"-"+anio+"']/following-sibling::*/button[text()='"+dia+"'])");
-        clic(esperarElementoWeb(fechaIda));
-    }
-
-    public void seleccionarFechaVuelta(int dia, int mes, int anio){
-        esperarxsegundos(1000);
-        By fechaVuelta= By.xpath("(//span[@id='"+(mes-1)+"-"+anio+"']/following-sibling::*/button[text()='"+dia+"'])");
-        clic(esperarElementoWeb(fechaVuelta));
     }
 
     public void agregarPasajeros(int pasajeros){
