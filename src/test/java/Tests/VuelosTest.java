@@ -38,7 +38,7 @@ public class VuelosTest {
         home.cerrarBrowser();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCV_001: Busqueda de vuelos - Campos validos")
     public void TCV_001(){
         home.aceptarCookies();
@@ -50,7 +50,7 @@ public class VuelosTest {
         Assertions.assertTrue(flights.isFlightsSearch());
     }
 
-    //@Test
+    @Test
     @DisplayName("TCV_002: Busqueda de vuelos - Campos inválidos")
     public void TCV_002(){
         home.aceptarCookies();
@@ -62,7 +62,7 @@ public class VuelosTest {
         assertEquals("Introduce ciudad o aeropuerto de destino", home.obtenerCampoInvalido());
     }
 
-    //@Test
+    @Test
     @DisplayName("TCV_003: Busqueda de vuelos - Primera clase")
     public void TCV_003(){
         home.aceptarCookies();
@@ -75,7 +75,7 @@ public class VuelosTest {
         Assertions.assertTrue(flights.isFlightsSearch());
     }
 
-    //@Test
+    @Test
     @DisplayName("TCV_004: Busqueda de vuelos - Sin escala")
     public void TCV_004(){
         home.aceptarCookies();
@@ -88,7 +88,7 @@ public class VuelosTest {
         flights.vuelosSinEscalas();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCV_005: Reserva de vuelos - Codigo descuento caducado")
     public void TCV_005(){
         home.aceptarCookies();
@@ -115,7 +115,7 @@ public class VuelosTest {
         assertEquals("El bono ha caducado.", checkout.mensajeAlertaBonoCaducado());
     }
 
-    //@Test
+    @Test
     @DisplayName("TCV_006: Reserva de vuelos - Codigo descuento no exitoso")
     public void TCV_006(){
         home.aceptarCookies();

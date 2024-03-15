@@ -40,7 +40,7 @@ public class HotelesTest {
         home.cerrarBrowser();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCH_001: Busqueda de hoteles Exitosa - Agregar Huspedes")
     public void TCH_001() {
         home.aceptarCookies();
@@ -51,7 +51,7 @@ public class HotelesTest {
         hoteles.presionarBuscar();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCH_002: Busqueda de hoteles Exitosa - Limite Habitaciones/Hotel (máx 6)")
     public void TCH_002() {
         home.aceptarCookies();
@@ -63,7 +63,7 @@ public class HotelesTest {
         hoteles.presionarBuscar();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCH_003: Busqueda de hoteles Exitosa - Filtro por estrellas")
     public void TCH_003() {
         home.aceptarCookies();
@@ -75,7 +75,7 @@ public class HotelesTest {
         hoteles.filtroEstrellasHotel();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCH_004: Reserva de hotel - con desayuno y spa")
     public void TCH_004(){
         home.aceptarCookies();
@@ -89,7 +89,7 @@ public class HotelesTest {
         search.seleccionarSPA();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCH_005: Reserva - Seguro de Cancelacion")
     public void TCH_005(){
         home.aceptarCookies();
@@ -107,7 +107,7 @@ public class HotelesTest {
         checkout.seleccionarSeguroCancelacion();
     }
 
-    //@Test
+    @Test
     @DisplayName("TCH_006: Reserva - Pago con Tarjeta")
     public void TCH_006(){
         home.aceptarCookies();
